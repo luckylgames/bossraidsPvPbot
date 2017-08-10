@@ -4,39 +4,39 @@ from discord.ext.commands import Bot
 import time
 from time import strftime
 
-Meowth = Bot(command_prefix="!")
+Meowth = Bot(command_prefix="?")
 
 """Below is a dict of raid bosses with their type weaknesses. The strings in them are custom emoji and will need to be changed
 to match your server. These become part of the raid report message."""
 
 raid_dict = {
-    "lugia": "<:rock:id> <:ghost1:id> <:electric:id> <:ice:id> <:dark:id>",
-    "moltres": "<:rock:id>x2 <:water:id> <:electric:id>",
-    "zapdos": "<:rock:id> <:ice:id>",
-    "articuno": "<:rock:id>x2 <:steel:id> <:fire1:id> <:electric:id>",
-    "tyranitar": "<:fighting:id>x2 <:ground:id> <:bug1:id> <:steel:id> <:water:id> <:grass:id> <:fairy:id>",
-    "snorlax": "<:fighting:id>",
-    "lapras": "<:fighting:id> <:rock:id> <:grass:id> <:electric:id>",
-    "rhydon": "<:water:id>x2 <:grass:id>x2 <:ice:id> <:steel:id> <:ground:id> <:fighting:id>",
-    "blastoise": "<:electric:id> <:grass:id>",
-    "charizard": "<:rock:id>x2 <:water:id> <:electric:id>",
-    "venusaur": "<:flying:id> <:fire1:id> <:psychic:id> <:ice:id>",
-    "flareon": "<:water:id> <:ground:id> <:rock:id>",
-    "jolteon": "<:ground:id>",
-    "vaporeon": "<:grass:id> <:electric:id>",
-    "gengar": "<:ground:id> <:ghost1:id> <:psychic:id> <:dark:id>",
-    "machamp": "<:flying:id> <:psychic:id> <:fairy:id>",
-    "alakazam": "<:bug1:id> <:ghost1:id> <:dark:id>",
-    "arcanine": "<:ground:id> <:rock:id> <:water:id>",
-    "magmar": "<:ground:id> <:rock:id> <:water:id>",
-    "electabuzz": "<:ground:id>",
-    "weezing": "<:psychic:id>",
-    "exeggutor": "<:bug1:id>x2 <:flying:id> <:poison:id> <:ghost1:id> <:fire1:id> <:ice:id> <:dark:id>",
-    "muk": "<:ground:id> <:psychic:id>",
-    "croconaw": "<:grass:id> <:electric:id>",
-    "quilava": "<:ground:id> <:rock:id> <:water:id>",
-    "bayleef": "<:flying:id> <:poison:id> <:bug1:id> <:fire1:id> <:ice:id>",
-    "magikarp": "<:grass:id> <:electric:id>"
+    "lugia": "<:rock:344297302036447235> <:ghost1:344297295623225348> <:electric:344297295883403264> <:ice:344297307455488000> <:dark:344297242057768980>",
+    "moltres": "<:rock:344297302036447235>x2 <:water:344297307497562116> <:electric:344297295883403264>",
+    "zapdos": "<:rock:344297302036447235> <:ice:344297307455488000>",
+    "articuno": "<:rock:344297302036447235>x2 <:steel:344297309435068431> <:fire1:344297295904505856> <:electric:344297295883403264>",
+    "tyranitar": "<:fighting:344297307245641729>x2 <:ground:344297295753510913> <:bug1:344297239973462016> <:steel:344297309435068431> <:water:344297307497562116> <:grass:344297301646508045> <:fairy:344297295656910860>",
+    "snorlax": "<:fighting:344297307245641729>",
+    "lapras": "<:fighting:344297307245641729> <:rock:344297302036447235> <:grass:344297301646508045> <:electric:344297295883403264>",
+    "rhydon": "<:water:344297307497562116>x2 <:grass:344297301646508045>x2 <:ice:344297307455488000> <:steel:344297309435068431> <:ground:344297295753510913> <:fighting:344297307245641729>",
+    "blastoise": "<:electric:344297295883403264> <:grass:344297301646508045>",
+    "charizard": "<:rock:344297302036447235>x2 <:water:344297307497562116> <:electric:344297295883403264>",
+    "venusaur": "<:flying:344297295782739978> <:fire1:344297295904505856> <:psychic:344297309426679819> <:ice:344297307455488000>",
+    "flareon": "<:water:344297307497562116> <:ground:344297295753510913> <:rock:344297302036447235>",
+    "jolteon": "<:ground:344297295753510913>",
+    "vaporeon": "<:grass:344297301646508045> <:electric:344297295883403264>",
+    "gengar": "<:ground:344297295753510913> <:ghost1:344297295623225348> <:psychic:344297309426679819> <:dark:344297242057768980>",
+    "machamp": "<:flying:344297295782739978> <:psychic:344297309426679819> <:fairy:344297295656910860>",
+    "alakazam": "<:bug1:344297239973462016> <:ghost1:344297295623225348> <:dark:344297242057768980>",
+    "arcanine": "<:ground:344297295753510913> <:rock:344297302036447235> <:water:344297307497562116>",
+    "magmar": "<:ground:344297295753510913> <:rock:344297302036447235> <:water:344297307497562116>",
+    "electabuzz": "<:ground:344297295753510913>",
+    "weezing": "<:psychic:344297309426679819>",
+    "exeggutor": "<:bug1:344297239973462016>x2 <:flying:344297295782739978> <:poison:344297309531799552> <:ghost1:344297295623225348> <:fire1:344297295904505856> <:ice:344297307455488000> <:dark:344297242057768980>",
+    "muk": "<:ground:344297295753510913> <:psychic:344297309426679819>",
+    "croconaw": "<:grass:344297301646508045> <:electric:344297295883403264>",
+    "quilava": "<:ground:344297295753510913> <:rock:344297302036447235> <:water:344297307497562116>",
+    "bayleef": "<:flying:344297295782739978> <:poison:344297309531799552> <:bug1:344297239973462016> <:fire1:344297295904505856> <:ice:344297307455488000>",
+    "magikarp": "<:grass:344297301646508045> <:electric:344297295883403264>"
     }
 
 
@@ -858,7 +858,7 @@ raidexpmsg_list=[]
 
 @Meowth.event
 async def on_ready():
-    print("Meowth! That's right!") #prints to the terminal or cmd prompt window upon successful connection to Discord
+    print("BossRaidsByPvP! That's right!") #prints to the terminal or cmd prompt window upon successful connection to Discord
 
 """Welcome message to the server and some basic instructions."""
 
@@ -867,7 +867,7 @@ async def on_member_join(member):
     server = member.server
     announcements = discord.utils.get(server.channels, name='announcements')
     admin = discord.utils.get(server.roles, name='admin')                
-    message = "Meowth! Welcome to {0.name}, {1.mention}! Set your team by typing '!team mystic', '!team valor', or '!team instinct' without quotations. Then head over to {2.mention} to get caught up on what's happening! If you have any questions just ask an {3.mention}."
+    message = "BossRaidsByPvP! Welcome to {0.name}, {1.mention}! Set your team by typing '!team mystic', '!team valor', or '!team instinct' without quotations. Then head over to {2.mention} to get caught up on what's happening! If you have any questions just ask an {3.mention}."
     await Meowth.send_message(server, message.format(server, member, announcements, admin))
 
 
@@ -876,27 +876,27 @@ async def on_member_join(member):
 @Meowth.command(pass_context = True)
 async def team(ctx):
     role = None
-    team_dict = {"mystic": "<:mystic:id>", "valor": "<:valor:id>", "instinct": "<:instinct:id>"}
+    team_dict = {"mystic": "344305962427088899", "valor": "344306177544421377", "instinct": "344306273065631754"}
     entered_team = ctx.message.content[6:].lower()
     role = discord.utils.get(ctx.message.server.roles, name=entered_team)
     roles = [
-        "mysticid",
-        "valorid", #these roles will have to be changed
-        "instinctid"
+        "344305962427088899",
+        "344306177544421377", #these roles will have to be changed
+        "344306273065631754"
         ]
     for r in ctx.message.author.roles:
         if r.id in roles:
-            await Meowth.send_message(ctx.message.channel, "Meowth! You already have a team role!") #checks if user already has a team
+            await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! You already have a team role!") #checks if user already has a team
             return
     if role is None or role.name not in list(team_dict.keys()):
-        await Meowth.send_message(ctx.message.channel, "Meowth! Invalid team!") #checks if team is one of the three
+        await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! Invalid team!") #checks if team is one of the three
         return
     else:
         try:
             await Meowth.add_roles(ctx.message.author, role)
-            await Meowth.send_message(ctx.message.channel, "Meowth! Added {0} to Team {1}! {2}".format(ctx.message.author.mention, role.name.capitalize(), team_dict[entered_team]))
+            await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! Added {0} to Team {1}! {2}".format(ctx.message.author.mention, role.name.capitalize(), team_dict[entered_team]))
         except discord.Forbidden:
-            await Meowth.send_message(ctx.message.channel, "Meowth! I can't add roles!")
+            await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! I can't add roles!")
             
 """A command for setting a role for a Pokemon species the user wants. 
 Meowth creates a role if one does not exist for the species."""
@@ -912,10 +912,10 @@ async def want(ctx):
         want_img_url = "http://floatzel.net/pokemon/black-white/sprites/images/{0}.png".format(str(want_number))
         want_embed = discord.Embed(colour=discord.Colour(0x2ecc71))
         want_embed.set_thumbnail(url=want_img_url)
-        await Meowth.send_message(ctx.message.channel, content="Meowth! Got it! {0} wants {1}".format(ctx.message.author.mention, entered_want.capitalize()),embed=want_embed)
+        await Meowth.send_message(ctx.message.channel, content="BossRaidsByPvP! Got it! {0} wants {1}".format(ctx.message.author.mention, entered_want.capitalize()),embed=want_embed)
         return
     if role is None and entered_want not in pokemon_list:
-        await Meowth.send_message(ctx.message.channel, "Meowth! {0} is not a Pokemon! Check your spelling!".format(entered_want.capitalize()))
+        await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! {0} is not a Pokemon! Check your spelling!".format(entered_want.capitalize()))
         return
     else:
         await Meowth.add_roles(ctx.message.author, role)
@@ -923,7 +923,7 @@ async def want(ctx):
         want_img_url = "http://floatzel.net/pokemon/black-white/sprites/images/{0}.png".format(str(want_number)) #This part embeds the sprite
         want_embed = discord.Embed(colour=discord.Colour(0x2ecc71))
         want_embed.set_thumbnail(url=want_img_url)
-        await Meowth.send_message(ctx.message.channel, content="Meowth! Got it! {0} wants {1}".format(ctx.message.author.mention, entered_want.capitalize()),embed=want_embed)
+        await Meowth.send_message(ctx.message.channel, content="BossRaidsByPvP! Got it! {0} wants {1}".format(ctx.message.author.mention, entered_want.capitalize()),embed=want_embed)
 
 """A command for reporting a wild Pokemon spawn location. Meowth will insert the details (really just everything after
 the species name) into a Google maps link and post the link to the same channel the report was made in."""
@@ -931,15 +931,15 @@ the species name) into a Google maps link and post the link to the same channel 
 async def wild(ctx):
     space1 = ctx.message.content.find(" ",6)
     if space1 == -1:
-        await Meowth.send_message(ctx.message.channel, "Meowth! Give more details when reporting!")
+        await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! Give more details when reporting!")
         return
     else:
         entered_wild = ctx.message.content[6:space1].lower()
         wild_details = ctx.message.content[space1:]
         wild_details_list = wild_details.split()
-        wild_gmaps_link = "https://www.google.com/maps/search/?api=1&query={0}+yourtown+yourstate".format('+'.join(wild_details_list))
+        wild_gmaps_link = "https://www.google.com/maps/search/?api=1&query={0}+belleville+illinois".format('+'.join(wild_details_list))
         if entered_wild not in pokemon_list:
-            await Meowth.send_message(ctx.message.channel, "Meowth! That's not a Pokemon! Check your spelling!")
+            await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! That's not a Pokemon! Check your spelling!")
             return
         else:
             wild = discord.utils.get(ctx.message.server.roles, name = entered_wild)
@@ -948,9 +948,9 @@ async def wild(ctx):
                 await asyncio.sleep(0.5)
             wild_number = pokemon_list.index(entered_wild) + 1
             wild_img_url = "http://floatzel.net/pokemon/black-white/sprites/images/{0}.png".format(str(wild_number))
-            wild_embed = discord.Embed(title="Meowth! Click here for directions to the wild {0}!".format(entered_wild.capitalize()),url=wild_gmaps_link,description="This is just my best guess!",colour=discord.Colour(0x2ecc71))
+            wild_embed = discord.Embed(title="BossRaidsByPvP! Click here for directions to the wild {0}!".format(entered_wild.capitalize()),url=wild_gmaps_link,description="This is just my best guess!",colour=discord.Colour(0x2ecc71))
             wild_embed.set_thumbnail(url=wild_img_url)
-            await Meowth.send_message(ctx.message.channel, content="Meowth! Wild {0} reported by {1}! Details: {2}".format(wild.mention, ctx.message.author.mention, wild_details),embed=wild_embed)
+            await Meowth.send_message(ctx.message.channel, content="BossRaidsByPvP! Wild {0} reported by {1}! Details: {2}".format(wild.mention, ctx.message.author.mention, wild_details),embed=wild_embed)
 
 """A command for reporting a raid. This works the same way as the wild command but embeds the
 icons of the boss's type weaknesses as custom emoji."""
@@ -958,18 +958,18 @@ icons of the boss's type weaknesses as custom emoji."""
 async def raid(ctx):
     space1 = ctx.message.content.find(" ",6)
     if space1 == -1:
-        await Meowth.send_message(ctx.message.channel, "Meowth! Give more details when reporting!")
+        await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! Give more details when reporting!")
         return
     else:
         entered_raid = ctx.message.content[6:space1].lower()
         raid_details = ctx.message.content[space1:]
         raid_details_list = raid_details.split()
-        raid_gmaps_link = "https://www.google.com/maps/search/?api=1&query={0}+yourtown+yourstate".format('+'.join(raid_details_list))
+        raid_gmaps_link = "https://www.google.com/maps/search/?api=1&query={0}+belleville+illinois".format('+'.join(raid_details_list))
         if entered_raid not in pokemon_list:
-            await Meowth.send_message(ctx.message.channel, "Meowth! That's not a Pokemon! Check your spelling!")
+            await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! That's not a Pokemon! Check your spelling!")
             return
         if entered_raid not in list(raid_dict.keys()) and entered_raid in pokemon_list:
-            await Meowth.send_message(ctx.message.channel, "Meowth! That Pokemon does not appear in raids!")
+            await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! That Pokemon does not appear in raids!")
             return
         else:
             raid_details_list = raid_details.split(" ", 10)
@@ -981,11 +981,11 @@ async def raid(ctx):
                 await asyncio.sleep(0.5)
             raid_number = pokemon_list.index(entered_raid) + 1
             raid_img_url = "http://floatzel.net/pokemon/black-white/sprites/images/{0}.png".format(str(raid_number))
-            raid_embed = discord.Embed(title="Meowth! Click here for directions to the raid!",url=raid_gmaps_link,description="Weaknesses: {0}".format(raid_dict[entered_raid]),colour=discord.Colour(0x2ecc71))
+            raid_embed = discord.Embed(title="BossRaidsByPvP! Click here for directions to the raid!",url=raid_gmaps_link,description="Weaknesses: {0}".format(raid_dict[entered_raid]),colour=discord.Colour(0x2ecc71))
             raid_embed.set_thumbnail(url=raid_img_url)
-            await Meowth.send_message(ctx.message.channel, content = "Meowth! {0} raid reported by {1}! Coordinate in {2}".format(raid.mention, ctx.message.author.mention, raid_channel.mention),embed=raid_embed)
+            await Meowth.send_message(ctx.message.channel, content = "BossRaidsByPvP! {0} raid reported by {1}! Coordinate in {2}".format(raid.mention, ctx.message.author.mention, raid_channel.mention),embed=raid_embed)
             await asyncio.sleep(1) #Wait for the channel to be created.
-            raidmsg = await Meowth.send_message(raid_channel, content = "Meowth! {0} raid reported by {1}! Coordinate here! Reply (not react) to this message with <:omw:id> to say you are on your way, or <:here:id> if you are at the raid already!".format(raid.mention, ctx.message.author.mention),embed=raid_embed)
+            raidmsg = await Meowth.send_message(raid_channel, content = "BossRaidsByPvP! {0} raid reported by {1}! Coordinate here! Reply (not react) to this message with <:omw:344297266904956928> to say you are on your way, or <:here:344297356423856129> if you are at the raid already!".format(raid.mention, ctx.message.author.mention),embed=raid_embed)
             raidchannel_list.append(raid_channel)
                 
 """Deletes any raid channel that is created after two hours and removes corresponding entries in waiting, omw, and
@@ -1009,7 +1009,7 @@ async def unwant(ctx):
     entered_unwant = ctx.message.content[8:].lower()
     role = discord.utils.get(ctx.message.server.roles, name=entered_unwant)
     if role is None and entered_unwant not in pokemon_list:
-        await Meowth.send_message(ctx.message.channel, "Meowth! {0} is not a Pokemon! Check your spelling!".format(entered_unwant))
+        await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! {0} is not a Pokemon! Check your spelling!".format(entered_unwant))
         return
     else:    
         await Meowth.remove_roles(ctx.message.author, role)
@@ -1017,7 +1017,7 @@ async def unwant(ctx):
         unwant_img_url = "http://floatzel.net/pokemon/black-white/sprites/images/{0}.png".format(str(unwant_number))
         unwant_embed = discord.Embed(colour=discord.Colour(0x2ecc71))
         unwant_embed.set_thumbnail(url=unwant_img_url)
-        await Meowth.send_message(ctx.message.channel, content="Meowth! Got it! {0} no longer wants {1}".format(ctx.message.author.mention, entered_unwant.capitalize()),embed=unwant_embed)
+        await Meowth.send_message(ctx.message.channel, content="BossRaidsByPvP! Got it! {0} no longer wants {1}".format(ctx.message.author.mention, entered_unwant.capitalize()),embed=unwant_embed)
 
 """Meowth watches for messages that start with the omw, here, unomw, unhere emoji. For omw and here, Meowth
 counts the number of emoji and adds that user and the number to the omw and waiting lists. For unomw and unhere,
@@ -1025,24 +1025,24 @@ Meowth removes that user and their number from the list regardless of emoji coun
 changed to fit the emoji ids in your server."""
 @Meowth.event
 async def on_message(message):
-    if message.channel in raidchannel_list and message.content.startswith('<:omw:id>'):
-        await Meowth.send_message(message.channel, "Meowth! {0} is on the way with {1} trainers!".format(message.author.mention,message.content.count('<:omw:342301297502060554>')))
-        omw_list.append((message.channel,message.author.mention,message.content.count('<:omw:id>')))
+    if message.channel in raidchannel_list and message.content.startswith('<:omw:344297266904956928>'):
+        await Meowth.send_message(message.channel, "BossRaidsByPvP! {0} is on the way with {1} trainers!".format(message.author.mention,message.content.count('<:omw:342301297502060554>')))
+        omw_list.append((message.channel,message.author.mention,message.content.count('<:omw:344297266904956928>')))
         return
     if message.channel in raidchannel_list and message.content.startswith('<:here:342302638173323265>'):
-        await Meowth.send_message(message.channel, "Meowth! {0} is at the raid with {1} trainers!".format(message.author.mention, message.content.count('<:here:342302638173323265>')))
-        waiting_list.append((message.channel,message.author.mention,message.content.count('<:here:id>')))
+        await Meowth.send_message(message.channel, "BossRaidsByPvP! {0} is at the raid with {1} trainers!".format(message.author.mention, message.content.count('<:here:342302638173323265>')))
+        waiting_list.append((message.channel,message.author.mention,message.content.count('<:here:344297356423856129>')))
         for a in omw_list:
             if a[1] == message.author.mention:
                 omw_list.remove(a)
         return
-    if message.channel in raidchannel_list and message.content.startswith('<:unhere:id>'):
-        await Meowth.send_message(message.channel, "Meowth! {0} and the trainers with them have left the raid!".format(message.author.mention))
+    if message.channel in raidchannel_list and message.content.startswith('<:unhere:344297367245422593>'):
+        await Meowth.send_message(message.channel, "BossRaidsByPvP! {0} and the trainers with them have left the raid!".format(message.author.mention))
         for b in waiting_list:
             if b[1] == message.author.mention:
                 waiting_list.remove(b)
-    if message.channel in raidchannel_list and message.content.startswith('<:unomw:id>'):
-        await Meowth.send_message(message.channel, "Meowth! {0} and the trainers with them are no longer on their way!".format(message.author.mention))
+    if message.channel in raidchannel_list and message.content.startswith('<:unomw:344297274538459138>'):
+        await Meowth.send_message(message.channel, "BossRaidsByPvP! {0} and the trainers with them are no longer on their way!".format(message.author.mention))
         for c in omw_list:
             if c[1] == message.author.mention:
                 omw_list.remove(c)
@@ -1061,7 +1061,7 @@ async def timerset(ctx):
         s = int(h) * 3600 + int(m) * 60
         expire = ticks + s
         localexpire = time.localtime(expire)
-        raidexpmsg = await Meowth.send_message(ctx.message.channel, "Meowth! This raid will end at {0}!".format(strftime("%I:%M", localexpire)))
+        raidexpmsg = await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! This raid will end at {0}!".format(strftime("%I:%M", localexpire)))
         raidexpmsg_list.append((ctx.message.channel, raidexpmsg))
         
 """A command to retrieve and resend previously set expire time for a raid."""
@@ -1084,7 +1084,7 @@ async def otw(ctx):
                 ctx_omwcount += c
                 ctx_omwlist.append(b)
         await asyncio.sleep(1)
-        await Meowth.send_message(ctx.message.channel, "Meowth! {0} on the way including {1} and the people with them! Be considerate and wait for them if possible!".format(str(ctx_omwcount),", ".join(ctx_omwlist)))
+        await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! {0} on the way including {1} and the people with them! Be considerate and wait for them if possible!".format(str(ctx_omwcount),", ".join(ctx_omwlist)))
 
 """A command to list the number and users who are waiting at the raid."""
 @Meowth.command(pass_context=True)
@@ -1097,7 +1097,7 @@ async def waiting(ctx):
                 ctx_waitingcount += c
                 ctx_waitinglist.append(b)
         await asyncio.sleep(1)
-        await Meowth.send_message(ctx.message.channel, "Meowth! {0} waiting at the raid including {1} and the people with them! Be considerate and let them know if and when you'll be there!".format(str(ctx_waitingcount),", ".join(ctx_waitinglist)))
+        await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! {0} waiting at the raid including {1} and the people with them! Be considerate and let them know if and when you'll be there!".format(str(ctx_waitingcount),", ".join(ctx_waitinglist)))
 
 """A command that removes all users currently waiting to start the raid from the waiting list. Users who are waiting
 for a second group must reannounce with the here emoji."""
@@ -1110,7 +1110,7 @@ async def starting(ctx):
                 ctx_startinglist.append(a[1])
                 waiting_list.remove(a)
         await asyncio.sleep(1)
-        await Meowth.send_message(ctx.message.channel, "Meowth! The group that was waiting is starting the raid! Trainers {0}, please respond with <:here:id> if you are waiting for another group!".format(", ".join(ctx_startinglist)))
+        await Meowth.send_message(ctx.message.channel, "BossRaidsByPvP! The group that was waiting is starting the raid! Trainers {0}, please respond with <:here:344297356423856129> if you are waiting for another group!".format(", ".join(ctx_startinglist)))
         
 
 
@@ -1125,4 +1125,4 @@ async def starting(ctx):
     
 
 
-Meowth.run("mytokenhere")
+Meowth.run("MzQ0Mjk0MzU5MDE5MDI4NDgx.DGqotA.vn9OTL_Gw33rZNc-zUQ00CbJH20")
